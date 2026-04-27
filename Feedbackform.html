@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Form</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #c6ebf4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card */
+.container {
+    width: 600px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #d6e0ef;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Heading */
+h2 {
+    font-size: 26px;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #6b7c93;
+    margin-bottom: 25px;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+/* Inputs */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d3dce6;
+    background: #f7faff;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #4a90e2;
+    background: #ffffff;
+    box-shadow: 0 0 6px rgba(74,144,226,0.2);
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Stars */
+.stars {
+    display: flex;
+    gap: 8px;
+    font-size: 22px;
+    color: #c0c7d1;
+    cursor: pointer;
+}
+
+.stars span.active {
+    color: #4a90e2;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    background: linear-gradient(90deg, #4a90e2, #5aa0ff);
+    transition: 0.3s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>We Value Your Feedback</h2>
+    <p class="subtitle">Help us improve by sharing your experience</p>
+
+    <form>
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Ex: Dinesh Kute" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="example@email.com" required>
+        </div>
+
+        <div class="form-group">
+            <label>Rate Our Website</label>
+            <div class="stars" id="stars">
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Give your Feedback</label>
+            <textarea placeholder="Tell us about your experience..."></textarea>
+        </div>
+
+        <button type="submit" class="btn">Submit Feedback</button>
+    </form>
+</div>
+
+<script>
+const stars = document.querySelectorAll("#stars span");
+
+stars.forEach((star, index) => {
+    star.addEventListener("click", () => {
+        stars.forEach((s, i) => {
+            s.classList.toggle("active", i <= index);
+        });
+    });
+});
+</script>
+
+</body>
+</html>
